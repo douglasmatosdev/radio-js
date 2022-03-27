@@ -49,7 +49,7 @@ async function routes(request, response) {
 }
 
 function handlerError(error, response) {
-    if (error.message(includes('ENOENT'))) {
+    if (error.message.includes('ENOENT')) {
         logger.warn(`asset not found ${error.stack}`)
         response.writeHead(404)
         return response.end()
